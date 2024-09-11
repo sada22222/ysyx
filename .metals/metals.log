@@ -6649,3 +6649,164 @@ scala.meta.internal.tokenizers.package$UnexpectedInputEndException
 2024.08.15 16:59:44 INFO  compiling npc (1 scala source)
 2024.08.15 16:59:46 WARN  there were 75 feature warnings; re-run with -feature for details
 2024.08.15 16:59:46 INFO  time: compiled npc in 1.34s
+8月 15, 2024 5:23:30 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 6222
+8月 15, 2024 5:23:41 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 6359
+2024.08.15 17:27:02 INFO  compiling npc (1 scala source)
+2024.08.15 17:27:03 WARN  there were 91 feature warnings; re-run with -feature for details
+2024.08.15 17:27:03 INFO  time: compiled npc in 1.61s
+2024.08.15 17:27:03 INFO  compiling npc (1 scala source)
+2024.08.15 17:27:03 WARN  there were 115 feature warnings; re-run with -feature for details
+2024.08.15 17:27:03 INFO  time: compiled npc in 0.39s
+2024.08.15 17:28:27 INFO  compiling npc (1 scala source)
+2024.08.15 17:28:28 WARN  there were 91 feature warnings; re-run with -feature for details
+2024.08.15 17:28:28 INFO  time: compiled npc in 1.53s
+2024.08.15 17:28:56 INFO  compiling npc (1 scala source)
+2024.08.15 17:28:56 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/RISCV32IM/rv32isc/csr_reg.scala
+2024.08.15 17:28:57 WARN  there were 91 feature warnings; re-run with -feature for details
+2024.08.15 17:28:57 INFO  time: compiled npc in 1.58s
+2024.08.15 17:30:00 INFO  compiling npc (1 scala source)
+2024.08.15 17:30:01 WARN  there were 75 feature warnings; re-run with -feature for details
+2024.08.15 17:30:01 INFO  time: compiled npc in 1.34s
+2024.08.15 17:30:01 INFO  compiling npc (1 scala source)
+2024.08.15 17:30:01 WARN  there were 115 feature warnings; re-run with -feature for details
+2024.08.15 17:30:01 INFO  time: compiled npc in 0.38s
+2024.08.15 17:32:07 WARN  Using indexes to guess the definition of waddr
+8月 15, 2024 5:32:51 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7127
+8月 15, 2024 5:33:27 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7208
+8月 15, 2024 5:37:32 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7343
+8月 15, 2024 5:37:50 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7393
+8月 15, 2024 5:38:02 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7422
+8月 15, 2024 5:38:27 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7465
+8月 15, 2024 5:39:29 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7534
+8月 15, 2024 5:39:30 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7543
+8月 15, 2024 5:39:31 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7552
+8月 15, 2024 5:40:24 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7607
+8月 15, 2024 5:41:15 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7693
+8月 15, 2024 5:41:21 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7704
+8月 15, 2024 5:42:01 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 7743
+2024.08.15 17:44:40 INFO  compiling npc (1 scala source)
+2024.08.15 17:44:41 WARN  there were 115 feature warnings; re-run with -feature for details
+2024.08.15 17:44:41 INFO  time: compiled npc in 1.15s
+2024.08.16 20:36:48 INFO  Started: Metals version 1.3.5 in folders '/home/hujun/ysyx-workbench' for client Visual Studio Code 1.92.2.
+SLF4J(W): Class path contains multiple SLF4J providers.
+SLF4J(W): Found provider [scribe.slf4j.ScribeServiceProvider@deb2ef6]
+SLF4J(W): Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@5cf165b3]
+SLF4J(W): See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J(I): Actual provider is of type [scribe.slf4j.ScribeServiceProvider@deb2ef6]
+2024.08.16 20:36:48 WARN  Flyway upgrade recommended: H2 2.3.230 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.08.16 20:36:49 INFO  Attempting to connect to the build server...
+2024.08.16 20:36:51 INFO  no build target found for /home/hujun/ysyx-workbench/npc/src/main/scala/RISCV32IM/rv32isc/Top.scala. Using presentation compiler with project's scala-library version: 3.3.3
+2024.08.16 20:36:54 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/hujun/ysyx-workbench/.metals/bsp.trace.json or /home/hujun/.cache/metals/bsp.trace.json
+2024.08.16 20:37:00 INFO  time: Connected to build server in 10s
+2024.08.16 20:37:00 INFO  Connected to Build server: Bloop v1.6.0
+2024.08.16 20:37:00 INFO  time: Imported build in 0.18s
+2024.08.16 20:37:00 INFO  running doctor check
+2024.08.16 20:37:00 INFO  java targets: npc-test, npc
+2024.08.16 20:37:00 WARN  2.12.10 is no longer supported in the current Metals versions, using the last known supported version 0.11.12
+2024.08.16 20:37:02 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/lib/src.zip. Java symbols will not be available.
+2024.08.16 20:37:02 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/lib/src.zip. Java symbols will not be available.
+2024.08.16 20:37:02 INFO  time: indexed workspace in 2.51s
+2024.08.16 20:37:04 INFO  compiling npc-test (7 scala sources)
+2024.08.16 20:37:08 INFO  time: compiled npc-test in 3.8s
+8月 16, 2024 8:37:38 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 27
+8月 16, 2024 9:28:36 下午 org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+信息: Unsupported notification method: $/setTrace
+8月 16, 2024 9:29:58 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 105
+2024.08.16 21:30:06 INFO  compiling npc (1 scala source)
+8月 16, 2024 9:30:07 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+警告: Unmatched cancel notification for request id 139
+2024.08.16 21:30:11 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:30:11 INFO  time: compiled npc in 5.02s
+2024.08.16 21:43:42 INFO  compiling npc (1 scala source)
+2024.08.16 21:43:44 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:43:44 INFO  time: compiled npc in 2.72s
+2024.08.16 21:44:10 INFO  compiling npc (1 scala source)
+2024.08.16 21:44:12 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:44:12 INFO  time: compiled npc in 2.21s
+2024.08.16 21:46:37 INFO  compiling npc (1 scala source)
+2024.08.16 21:46:39 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:46:39 INFO  time: compiled npc in 1.92s
+2024.08.16 21:46:53 INFO  compiling npc (1 scala source)
+2024.08.16 21:46:53 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:46:54 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:46:54 INFO  time: compiled npc in 1.65s
+2024.08.16 21:48:50 INFO  compiling npc (1 scala source)
+2024.08.16 21:48:51 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:48:51 INFO  time: compiled npc in 1.55s
+2024.08.16 21:53:31 INFO  compiling npc (1 scala source)
+2024.08.16 21:53:31 INFO  time: compiled npc in 0.16s
+2024.08.16 21:53:31 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:53:37 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:53:37 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:53:38 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:53:38 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:53:40 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:53:40 INFO  compiling npc (1 scala source)
+2024.08.16 21:53:41 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:53:42 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:53:42 INFO  time: compiled npc in 1.41s
+2024.08.16 21:54:37 INFO  compiling npc (1 scala source)
+2024.08.16 21:54:38 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:54:38 INFO  time: compiled npc in 1.43s
+2024.08.16 21:54:46 INFO  compiling npc (1 scala source)
+2024.08.16 21:54:47 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:54:48 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:54:48 INFO  time: compiled npc in 1.44s
+2024.08.16 21:56:29 INFO  compiling npc (1 scala source)
+2024.08.16 21:56:30 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:56:30 INFO  time: compiled npc in 1.58s
+2024.08.16 21:56:34 INFO  compiling npc (1 scala source)
+2024.08.16 21:56:34 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:56:35 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:56:35 INFO  time: compiled npc in 1.31s
+2024.08.16 21:56:37 INFO  compiling npc (1 scala source)
+2024.08.16 21:56:38 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:56:38 INFO  time: compiled npc in 1.35s
+2024.08.16 21:57:19 INFO  compiling npc (1 scala source)
+2024.08.16 21:57:19 WARN  Could not load snapshot text for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala
+2024.08.16 21:57:20 WARN  there were 18 feature warnings; re-run with -feature for details
+2024.08.16 21:57:20 INFO  time: compiled npc in 1.32s
+Exception in thread "pool-1-thread-204" java.lang.OutOfMemoryError: Java heap space
+8月 16, 2024 10:13:22 下午 org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+严重: Internal error: Java heap space
+java.lang.OutOfMemoryError: Java heap space
+
+Exception in thread "pool-1-thread-214" java.lang.OutOfMemoryError: Java heap space
+2024.09.05 22:11:26 INFO  Started: Metals version 1.3.5 in folders '/home/hujun/ysyx-workbench' for client Visual Studio Code 1.92.2.
+SLF4J(W): Class path contains multiple SLF4J providers.
+SLF4J(W): Found provider [scribe.slf4j.ScribeServiceProvider@5cf165b3]
+SLF4J(W): Found provider [ch.qos.logback.classic.spi.LogbackServiceProvider@3bcbcebc]
+SLF4J(W): See https://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J(I): Actual provider is of type [scribe.slf4j.ScribeServiceProvider@5cf165b3]
+2024.09.05 22:11:26 WARN  Flyway upgrade recommended: H2 2.3.230 is newer than this version of Flyway and support has not been tested. The latest supported version of H2 is 2.2.220.
+2024.09.05 22:11:27 INFO  Attempting to connect to the build server...
+2024.09.05 22:11:28 INFO  no build target found for /home/hujun/ysyx-workbench/npc/src/main/scala/ps_data.scala. Using presentation compiler with project's scala-library version: 3.3.3
+2024.09.05 22:11:31 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/hujun/ysyx-workbench/.metals/bsp.trace.json or /home/hujun/.cache/metals/bsp.trace.json
+2024.09.05 22:11:40 INFO  time: Connected to build server in 12s
+2024.09.05 22:11:40 INFO  Connected to Build server: Bloop v1.6.0
+2024.09.05 22:11:40 INFO  time: Imported build in 0.18s
+2024.09.05 22:11:40 INFO  running doctor check
+2024.09.05 22:11:40 INFO  java targets: npc-test, npc
+2024.09.05 22:11:40 WARN  2.12.10 is no longer supported in the current Metals versions, using the last known supported version 0.11.12
+2024.09.05 22:11:43 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/lib/src.zip. Java symbols will not be available.
+2024.09.05 22:11:43 WARN  Could not find java sources in /usr/lib/jvm/src.zip, /usr/lib/jvm/lib/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/src.zip, /usr/lib/jvm/java-17-openjdk-amd64/lib/src.zip. Java symbols will not be available.
+2024.09.05 22:11:43 INFO  time: indexed workspace in 2.47s
+2024.09.05 22:11:44 INFO  compiling npc-test (7 scala sources)
+2024.09.05 22:11:47 INFO  time: compiled npc-test in 3.47s

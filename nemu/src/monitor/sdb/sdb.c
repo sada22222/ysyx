@@ -59,8 +59,6 @@ static char* rl_gets() {
 }
 
 
-
-
 static struct {
   const char *name;
   const char *description;
@@ -77,7 +75,7 @@ static struct {
   { "p", "Calculate the value of a regular expression", cmd_p},
   { "w", "Create a new watch point with the expression", cmd_w},
   { "d", "Delete a watch point from link list.", cmd_d},  
-  { "display", "display all watch point from link list.", cmd_dis}, 
+  { "display", "Display all watch point from link list.", cmd_dis}, 
 
 };
 
@@ -150,7 +148,6 @@ static int cmd_info(char *args) {
 }
 
 static int cmd_x(char *args) {
-  // 获取参数
   char *argN = strtok(args, " ");
   char *argEXPR = strtok(NULL, " ");
 
@@ -159,19 +156,16 @@ static int cmd_x(char *args) {
     return 0;
   }
 
-  // 解析参数
   char *ptrN = NULL;
   char *ptrEXPR = NULL;
   uint32_t N = strtoul(argN, &ptrN, 10); 
   uint32_t EXPR = strtoul(argEXPR, &ptrEXPR, 16); 
 
-  // 参数合法性检查
   if (((argN + strlen(argN)) != ptrN) || ((argEXPR + strlen(argEXPR)) != ptrEXPR)) {
     printf("Check your input cmd, args can not contain non-numeric letters!\n");
     return 0;
   }
 
-  // 打印内存内容
   for (int i = 0; i < N; i++) {
     uint32_t paddr = EXPR + i * 4;  // 这里假设按4字节读取
     printf("0x%08x:\t0x%08x\n", paddr, paddr_read(paddr, 4));

@@ -79,59 +79,10 @@ typedef struct token {
 static Token tokens[32] __attribute__((used)) = {};
 static int nr_token __attribute__((used))  = 0;
 
-#define TEXTON  1
-#define TEXTOFF 0
-char* getTokenInfo(Token *p,int onoff){ //add by dingyawei. return the token info, used for printf!
-  static char TokenInfo[32];
-  switch (p->type)
-  {
-    case TK_NOTYPE: strcpy(TokenInfo," "); break;
-    case TK_L_PAR:  strcpy(TokenInfo,"("); break;
-    case TK_R_PAR:  strcpy(TokenInfo,")"); break;
-    case TK_NEG:    
-      if(onoff == TEXTON)
-        strcpy(TokenInfo,"-(负号)"); 
-      else
-        strcpy(TokenInfo,"-"); 
-      break;
-    case TK_DERE:
-      if(onoff == TEXTON)
-        strcpy(TokenInfo,"*(指针)");
-      else
-        strcpy(TokenInfo,"*"); 
-      break;
-    case TK_MUL:
-      if(onoff == TEXTON)
-        strcpy(TokenInfo,"*(乘法)");
-      else
-        strcpy(TokenInfo,"*"); 
-      break;
-    case TK_DIV:    strcpy(TokenInfo,"/"); break;
-    case TK_REM:    strcpy(TokenInfo,"%"); break;
-    case TK_PLUS:   strcpy(TokenInfo,"+"); break;
-    case TK_SUB:
-      if(onoff == TEXTON)
-        strcpy(TokenInfo,"-(减号)"); 
-      else
-        strcpy(TokenInfo,"-"); 
-      break;
-    case TK_EQ:     strcpy(TokenInfo,"=="); break;
-    case TK_NEQ:    strcpy(TokenInfo,"!="); break;
-    case TK_AND:    strcpy(TokenInfo,"&&"); break;
-    case TK_OR:     strcpy(TokenInfo,"||"); break;
-    case TK_REG:    strcpy(TokenInfo,p->str); break;
-    case TK_HEX:    strcpy(TokenInfo,p->str); break;
-    case TK_NUM:    strcpy(TokenInfo,p->str); break;
-  }
-  return TokenInfo;
-}
-
 static bool make_token(char *e) {
   int position = 0;
   int i;
   regmatch_t pmatch;
-
-  // clear last time tokens:
   nr_token = 0;
   for(int i=0;i<32;i++){
     tokens[i].type = 0;
@@ -141,16 +92,11 @@ static bool make_token(char *e) {
   }
 
   while (e[position] != '\0') {
-    /* Try all rules one by one. */
     for (i = 0; i < NR_REGEX; i ++) {
       if (regexec(&re[i], e + position, 1, &pmatch, 0) == 0 && pmatch.rm_so == 0){
         //每次都从指针(e + position)的起始位置开始，如果和match了rule里的某个token： 
         char *substr_start = e + position;
         int substr_len = pmatch.rm_eo;
-
-        // Log("match rules[%d] = \"%s\" at position %d with len %d: %.*s",
-        //     i, rules[i].regex, position, substr_len, substr_len, substr_start);
-
         position += substr_len;
 
         switch (rules[i].token_type) {
@@ -361,11 +307,6 @@ Token* find_main_op(Token *start,Token *end){
     }
   }
 
-  // 打印mask信息
-  // for(Token *p=start;p<=end;p++){
-  //   printf("find_main_op token = %s, mask = %d \n",getTokenInfo(p,TEXTON),mask[p-start]);
-  // }
-
   // 3.利用mask遍历token,寻找优先级最高的符号
   for(int priority = MAX_PRI; priority >= MIN_PRI ; priority--){
     for(int i = len-1 ; i>=0 ; i--){
@@ -423,17 +364,6 @@ uint32_t eval(Token *p, Token *q) {
       uint32_t val1 = eval(p, op - 1);
       uint32_t val2 = eval(op + 1, q);
 
-      // printf("-----------expr1 = ");
-      // for(Token *i=p;i<=op-1;i++){
-      //   printf("%s",getTokenInfo(i,TEXTOFF));
-      // }
-      // printf("=%ld, main operator is %s, ",val1,getTokenInfo(op,TEXTON));
-      // printf("expr2 = ");
-      // for(Token *i=op+1;i<=q;i++){
-      //   printf("%s",getTokenInfo(i,TEXTOFF));
-      // }
-      // printf("=%ld-----------\n",val2);
-
       switch (op->type) {
         case TK_MUL:  return val1 * val2;
         case TK_DIV:  return val1 / val2;
@@ -451,15 +381,11 @@ uint32_t eval(Token *p, Token *q) {
   return 0;
 }
 
-//-------------------------------------------------------------------- add by dingyawei,end.--------------------------------------------------------------------------------//
 word_t expr(char *e, bool *success) {
   if (!make_token(e)) {
     *success = false;
     return 0;
   }
   *success = true;
-  //Token *op = find_main_op(tokens,tokens+nr_token);
-  //check_parentheses(tokens,tokens+nr_token);
-  //printf("The main operator is %s , location = %ld\n",getTokenInfo(op,TEXTON),op-tokens);
   return eval(tokens,tokens+nr_token);
 }

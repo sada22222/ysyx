@@ -78,11 +78,11 @@ static void execute(uint64_t n) {
     g_nr_guest_inst++;            // 记录已执行的指令数
     trace_and_difftest(&s, cpu.pc);  // 追踪和差分测试
 
-    // 调用监视点检查函数
-    if (WP_check_update()) {      // 如果监视点触发
-      nemu_state.state = NEMU_STOP;  // 将 NEMU 的状态设置为暂停
-      break;                       // 退出循环，暂停执行
-    }
+  if(WP_check_update() && nemu_state.state == NEMU_RUNNING){
+    nemu_state.state = NEMU_STOP;
+    printf("program is pause now.\n");
+    break;
+  }
     if (nemu_state.state != NEMU_RUNNING) break;  // 检查 NEMU 的运行状态
     IFDEF(CONFIG_DEVICE, device_update());
   }

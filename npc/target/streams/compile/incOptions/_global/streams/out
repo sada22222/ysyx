@@ -1,11 +1,23 @@
 [0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = /home/hujun/ysyx-workbench/npc/target/scala-2.12/classes.bak[0m
 [0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	CSRReg$$anon$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	CSRReg.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	PS2Keyboard$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	PS2Keyboard.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	CSRReg$$anon$1.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	CSRReg.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	PS2Keyboard$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	PS2Keyboard.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	CSRReg.class[0m
-[0m[[0m[0mdebug[0m] [0m[0m	CSRReg$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard$delayedInit$body.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	PS2Keyboard$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	PS2Keyboard.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	keyboard.class[0m
 [0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: /home/hujun/ysyx-workbench/npc/target/scala-2.12/classes.bak[0m

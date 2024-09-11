@@ -1,4 +1,6 @@
-TOPNAME = keyboard
+TOPNAME ?= default_name
+
+
 NXDC_FILES = constr/$(TOPNAME).nxdc
 INC_PATH ?=
 
@@ -20,7 +22,7 @@ $(SRC_AUTO_BIND): $(NXDC_FILES)
 	python3 $(NVBOARD_HOME)/scripts/auto_pin_bind.py $^ $@
 
 # project source
-VSRCS = $(shell find $(abspath ./vsrc) -name "*.v")
+VSRCS = $(shell find $(abspath ./vsrc) -name "*$(TOPNAME).v")
 CSRCS = $(shell find $(abspath ./csrc) -name "*$(TOPNAME).cpp")
 CSRCS += $(SRC_AUTO_BIND)
 

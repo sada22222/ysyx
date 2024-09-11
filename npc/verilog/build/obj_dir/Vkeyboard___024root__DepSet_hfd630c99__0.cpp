@@ -64,40 +64,34 @@ VL_INLINE_OPT void Vkeyboard___024root___nba_sequent__TOP__0(Vkeyboard___024root
     keyboard__DOT___T_11 = 0;
     CData/*3:0*/ keyboard__DOT___T_13;
     keyboard__DOT___T_13 = 0;
-    CData/*0:0*/ __Vdly__keyboard__DOT__ps2Keyboard__DOT__ready;
-    __Vdly__keyboard__DOT__ps2Keyboard__DOT__ready = 0;
+    CData/*3:0*/ __Vdly__keyboard__DOT__ps2Keyboard__DOT__count;
+    __Vdly__keyboard__DOT__ps2Keyboard__DOT__count = 0;
     // Body
-    __Vdly__keyboard__DOT__ps2Keyboard__DOT__ready 
-        = vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready;
-    vlSelf->keyboard__DOT__nextdata_n = ((IData)(vlSelf->reset) 
-                                         | (IData)(vlSelf->keyboard__DOT___GEN_17));
+    __Vdly__keyboard__DOT__ps2Keyboard__DOT__count 
+        = vlSelf->keyboard__DOT__ps2Keyboard__DOT__count;
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__ps2_clk_sync_1 
         = ((~ (IData)(vlSelf->reset)) & (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ps2_clk_sync_2));
+    vlSelf->keyboard__DOT__newKeyPress = ((~ (IData)(vlSelf->reset)) 
+                                          & ((0U != (IData)(vlSelf->keyboard__DOT__state)) 
+                                             & ((1U 
+                                                 != (IData)(vlSelf->keyboard__DOT__state)) 
+                                                & (IData)(vlSelf->keyboard__DOT___GEN_6))));
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__ps2_clk_sync_2 
         = ((~ (IData)(vlSelf->reset)) & (IData)(vlSelf->io_ps2_clk));
     if (vlSelf->reset) {
-        __Vdly__keyboard__DOT__ps2Keyboard__DOT__ready = 0U;
+        __Vdly__keyboard__DOT__ps2Keyboard__DOT__count = 0U;
         vlSelf->keyboard__DOT__keyCount = 0U;
     } else {
-        if (vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_26) {
-            if (((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr) 
-                 == (7U & ((IData)(1U) + (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))))) {
-                __Vdly__keyboard__DOT__ps2Keyboard__DOT__ready = 0U;
-            } else if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling) {
-                if ((0xaU == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count))) {
-                    __Vdly__keyboard__DOT__ps2Keyboard__DOT__ready 
-                        = vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_29;
-                }
-            }
-        } else if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling) {
-            if ((0xaU == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count))) {
-                __Vdly__keyboard__DOT__ps2Keyboard__DOT__ready 
-                    = vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_29;
-            }
+        if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling) {
+            __Vdly__keyboard__DOT__ps2Keyboard__DOT__count 
+                = ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_3)
+                    ? 0U : (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_24));
+        } else if (vlSelf->keyboard__DOT__fifo_clean) {
+            __Vdly__keyboard__DOT__ps2Keyboard__DOT__count = 0U;
         }
         if ((0U != (IData)(vlSelf->keyboard__DOT__state))) {
             if ((1U == (IData)(vlSelf->keyboard__DOT__state))) {
-                vlSelf->keyboard__DOT__keyCount = vlSelf->keyboard__DOT___T_4;
+                vlSelf->keyboard__DOT__keyCount = vlSelf->keyboard__DOT___T_3;
             }
         }
     }
@@ -293,22 +287,21 @@ VL_INLINE_OPT void Vkeyboard___024root___nba_sequent__TOP__0(Vkeyboard___024root
                                                                                & VL_DIV_III(8, (IData)(vlSelf->keyboard__DOT__keyCount), (IData)(0xaU))), (IData)(0xaU))))
                                                              ? 0x9fU
                                                              : 3U)))))))))))))));
-    vlSelf->keyboard__DOT___T_4 = (0xffU & ((IData)(1U) 
+    vlSelf->keyboard__DOT___T_3 = (0xffU & ((IData)(1U) 
                                             + (IData)(vlSelf->keyboard__DOT__keyCount)));
     if (vlSelf->reset) {
         vlSelf->keyboard__DOT__lastKeyCode = 0U;
-        vlSelf->keyboard__DOT__newKeyPress = 0U;
-    } else if ((0U == (IData)(vlSelf->keyboard__DOT__state))) {
-        if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready) {
-            if ((0xf0U != (IData)(vlSelf->keyboard__DOT__ps2Keyboard_io_data))) {
-                vlSelf->keyboard__DOT__lastKeyCode 
-                    = vlSelf->keyboard__DOT__ps2Keyboard_io_data;
-                vlSelf->keyboard__DOT__newKeyPress = 1U;
+    } else if ((0U != (IData)(vlSelf->keyboard__DOT__state))) {
+        if ((1U != (IData)(vlSelf->keyboard__DOT__state))) {
+            if ((2U == (IData)(vlSelf->keyboard__DOT__state))) {
+                if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready) {
+                    if ((0xf0U != (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0))) {
+                        vlSelf->keyboard__DOT__lastKeyCode 
+                            = vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0;
+                    }
+                }
             }
         }
-    } else {
-        vlSelf->keyboard__DOT__newKeyPress = ((1U != (IData)(vlSelf->keyboard__DOT__state)) 
-                                              & (IData)(vlSelf->keyboard__DOT___GEN_9));
     }
     if (vlSelf->keyboard__DOT__newKeyPress) {
         keyboard__DOT___T_7 = (0xfU & (IData)(vlSelf->keyboard__DOT__lastKeyCode));
@@ -1247,14 +1240,8 @@ VL_INLINE_OPT void Vkeyboard___024root___nba_sequent__TOP__0(Vkeyboard___024root
                                                              : 3U)))))))))))))));
     if (vlSelf->reset) {
         vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0 = 0U;
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_1 = 0U;
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_2 = 0U;
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_3 = 0U;
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_4 = 0U;
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_5 = 0U;
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_6 = 0U;
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_7 = 0U;
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr = 0U;
+        vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer = 0U;
+        vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr = 0U;
     } else {
         if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling) {
             if ((0xaU == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count))) {
@@ -1266,114 +1253,22 @@ VL_INLINE_OPT void Vkeyboard___024root___nba_sequent__TOP__0(Vkeyboard___024root
                     } else if (vlSelf->keyboard__DOT__fifo_clean) {
                         vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0 = 0U;
                     }
-                    if ((1U == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr))) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_1 
-                            = (0xffU & ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer) 
-                                        >> 1U));
-                    } else if (vlSelf->keyboard__DOT__fifo_clean) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_1 = 0U;
-                    }
-                    if ((2U == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr))) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_2 
-                            = (0xffU & ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer) 
-                                        >> 1U));
-                    } else if (vlSelf->keyboard__DOT__fifo_clean) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_2 = 0U;
-                    }
-                    if ((3U == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr))) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_3 
-                            = (0xffU & ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer) 
-                                        >> 1U));
-                    } else if (vlSelf->keyboard__DOT__fifo_clean) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_3 = 0U;
-                    }
-                    if ((4U == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr))) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_4 
-                            = (0xffU & ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer) 
-                                        >> 1U));
-                    } else if (vlSelf->keyboard__DOT__fifo_clean) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_4 = 0U;
-                    }
-                    if ((5U == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr))) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_5 
-                            = (0xffU & ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer) 
-                                        >> 1U));
-                    } else if (vlSelf->keyboard__DOT__fifo_clean) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_5 = 0U;
-                    }
-                    if ((6U == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr))) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_6 
-                            = (0xffU & ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer) 
-                                        >> 1U));
-                    } else if (vlSelf->keyboard__DOT__fifo_clean) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_6 = 0U;
-                    }
-                    if ((7U == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr))) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_7 
-                            = (0xffU & ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer) 
-                                        >> 1U));
-                    } else if (vlSelf->keyboard__DOT__fifo_clean) {
-                        vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_7 = 0U;
-                    }
-                } else if (vlSelf->keyboard__DOT__fifo_clean) {
-                    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0 = 0U;
-                    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_1 = 0U;
-                    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_2 = 0U;
-                    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_3 = 0U;
-                    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_4 = 0U;
-                    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_5 = 0U;
-                    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_6 = 0U;
-                    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_7 = 0U;
-                }
-            } else if (vlSelf->keyboard__DOT__fifo_clean) {
-                vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0 = 0U;
-                vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_1 = 0U;
-                vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_2 = 0U;
-                vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_3 = 0U;
-                vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_4 = 0U;
-                vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_5 = 0U;
-                vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_6 = 0U;
-                vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_7 = 0U;
-            }
-        } else if (vlSelf->keyboard__DOT__fifo_clean) {
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0 = 0U;
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_1 = 0U;
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_2 = 0U;
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_3 = 0U;
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_4 = 0U;
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_5 = 0U;
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_6 = 0U;
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_7 = 0U;
-        }
-        if (vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_26) {
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr 
-                = vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_28;
-        } else if (vlSelf->keyboard__DOT__fifo_clean) {
-            vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr = 0U;
-        }
-    }
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_28 
-        = (7U & ((IData)(1U) + (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr)));
-    if (vlSelf->reset) {
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer = 0U;
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr = 0U;
-    } else {
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer 
-            = (0x3ffU & (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_55));
-        if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling) {
-            if ((0xaU == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count))) {
-                if (vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_9) {
                     vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr 
                         = vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_12;
                 } else if (vlSelf->keyboard__DOT__fifo_clean) {
+                    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0 = 0U;
                     vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr = 0U;
                 }
             } else if (vlSelf->keyboard__DOT__fifo_clean) {
+                vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0 = 0U;
                 vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr = 0U;
             }
         } else if (vlSelf->keyboard__DOT__fifo_clean) {
+            vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0 = 0U;
             vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr = 0U;
         }
+        vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer 
+            = (0x3ffU & (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_55));
     }
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_9 = 
         ((~ (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer)) 
@@ -1383,40 +1278,50 @@ VL_INLINE_OPT void Vkeyboard___024root___nba_sequent__TOP__0(Vkeyboard___024root
                                                             >> 1U)))));
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_12 
         = (7U & ((IData)(1U) + (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr)));
+    vlSelf->keyboard__DOT__fifo_clean = ((~ (IData)(vlSelf->reset)) 
+                                         & ((0U != (IData)(vlSelf->keyboard__DOT__state)) 
+                                            & (IData)(vlSelf->keyboard__DOT___GEN_12)));
     if (vlSelf->reset) {
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__count = 0U;
-    } else if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling) {
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__count 
-            = ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_3)
-                ? 0U : (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_24));
-    } else if (vlSelf->keyboard__DOT__fifo_clean) {
-        vlSelf->keyboard__DOT__ps2Keyboard__DOT__count = 0U;
+        vlSelf->keyboard__DOT__state = 0U;
+        vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready = 0U;
+    } else {
+        if (vlSelf->keyboard__DOT___T) {
+            if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready) {
+                vlSelf->keyboard__DOT__state = 2U;
+            }
+        } else if (vlSelf->keyboard__DOT___T_1) {
+            vlSelf->keyboard__DOT__state = 0U;
+        } else if (vlSelf->keyboard__DOT___T_4) {
+            if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready) {
+                vlSelf->keyboard__DOT__state = 1U;
+            }
+        }
+        if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling) {
+            if ((0xaU == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count))) {
+                vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready 
+                    = vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_29;
+            }
+        }
     }
+    vlSelf->keyboard__DOT___T = (0U == (IData)(vlSelf->keyboard__DOT__state));
+    vlSelf->keyboard__DOT___T_1 = (1U == (IData)(vlSelf->keyboard__DOT__state));
+    vlSelf->keyboard__DOT___T_4 = (2U == (IData)(vlSelf->keyboard__DOT__state));
+    vlSelf->keyboard__DOT___GEN_6 = ((2U == (IData)(vlSelf->keyboard__DOT__state)) 
+                                     | (IData)(vlSelf->keyboard__DOT__newKeyPress));
+    vlSelf->keyboard__DOT___GEN_12 = ((1U == (IData)(vlSelf->keyboard__DOT__state)) 
+                                      | (IData)(vlSelf->keyboard__DOT__fifo_clean));
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling 
         = ((~ (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ps2_clk_sync_1)) 
            & (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ps2_clk_sync_2));
+    vlSelf->keyboard__DOT__ps2Keyboard__DOT__count 
+        = __Vdly__keyboard__DOT__ps2Keyboard__DOT__count;
+    vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_29 
+        = ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_9) 
+           | (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready));
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_3 = 
         (0xaU == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count));
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_24 
         = (0xfU & ((IData)(1U) + (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count)));
-    vlSelf->keyboard__DOT__fifo_clean = ((~ (IData)(vlSelf->reset)) 
-                                         & ((0U != (IData)(vlSelf->keyboard__DOT__state)) 
-                                            & (IData)(vlSelf->keyboard__DOT___GEN_14)));
-    if (vlSelf->reset) {
-        vlSelf->keyboard__DOT__state = 0U;
-    } else if (vlSelf->keyboard__DOT___T) {
-        if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready) {
-            vlSelf->keyboard__DOT__state = ((0xf0U 
-                                             == (IData)(vlSelf->keyboard__DOT__ps2Keyboard_io_data))
-                                             ? 1U : 2U);
-        }
-    } else if (vlSelf->keyboard__DOT___T_2) {
-        vlSelf->keyboard__DOT__state = 0U;
-    } else if (vlSelf->keyboard__DOT___T_5) {
-        if (vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready) {
-            vlSelf->keyboard__DOT__state = 0U;
-        }
-    }
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_55 
         = (0xffffU & ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling)
                        ? ((0xaU == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count))
@@ -1430,55 +1335,6 @@ VL_INLINE_OPT void Vkeyboard___024root___nba_sequent__TOP__0(Vkeyboard___024root
                                              << (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count))))))
                        : ((IData)(vlSelf->keyboard__DOT__fifo_clean)
                            ? 0U : (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer))));
-    vlSelf->keyboard__DOT__ps2Keyboard_io_data = ((7U 
-                                                   == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                   ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_7)
-                                                   : 
-                                                  ((6U 
-                                                    == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                    ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_6)
-                                                    : 
-                                                   ((5U 
-                                                     == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                     ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_5)
-                                                     : 
-                                                    ((4U 
-                                                      == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                      ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_4)
-                                                      : 
-                                                     ((3U 
-                                                       == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                       ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_3)
-                                                       : 
-                                                      ((2U 
-                                                        == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                        ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_2)
-                                                        : 
-                                                       ((1U 
-                                                         == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                         ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_1)
-                                                         : (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0))))))));
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready 
-        = __Vdly__keyboard__DOT__ps2Keyboard__DOT__ready;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_26 
-        = ((~ (IData)(vlSelf->keyboard__DOT__nextdata_n)) 
-           & (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready));
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_29 
-        = ((IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_9) 
-           | (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready));
-    vlSelf->keyboard__DOT___T = (0U == (IData)(vlSelf->keyboard__DOT__state));
-    vlSelf->keyboard__DOT___T_2 = (1U == (IData)(vlSelf->keyboard__DOT__state));
-    vlSelf->keyboard__DOT___T_5 = (2U == (IData)(vlSelf->keyboard__DOT__state));
-    vlSelf->keyboard__DOT___GEN_9 = ((2U == (IData)(vlSelf->keyboard__DOT__state)) 
-                                     | (IData)(vlSelf->keyboard__DOT__newKeyPress));
-    vlSelf->keyboard__DOT___GEN_14 = ((1U == (IData)(vlSelf->keyboard__DOT__state)) 
-                                      | (IData)(vlSelf->keyboard__DOT__fifo_clean));
-    vlSelf->keyboard__DOT___GEN_17 = ((0U == (IData)(vlSelf->keyboard__DOT__state))
-                                       ? ((~ (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready)) 
-                                          & (IData)(vlSelf->keyboard__DOT__nextdata_n))
-                                       : ((1U == (IData)(vlSelf->keyboard__DOT__state)) 
-                                          | ((2U == (IData)(vlSelf->keyboard__DOT__state)) 
-                                             | (IData)(vlSelf->keyboard__DOT__nextdata_n))));
 }
 
 void Vkeyboard___024root___eval_nba(Vkeyboard___024root* vlSelf) {
@@ -1524,7 +1380,7 @@ void Vkeyboard___024root___eval(Vkeyboard___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vkeyboard___024root___dump_triggers__ico(vlSelf);
 #endif
-                VL_FATAL_MT("/home/hujun/ysyx-workbench/npc/verilog/vsrc/keyboard.v", 386, "", "Input combinational region did not converge.");
+                VL_FATAL_MT("/home/hujun/ysyx-workbench/npc/verilog/vsrc/keyboard.v", 179, "", "Input combinational region did not converge.");
             }
             vlSelf->__VicoIterCount = ((IData)(1U) 
                                        + vlSelf->__VicoIterCount);
@@ -1547,7 +1403,7 @@ void Vkeyboard___024root___eval(Vkeyboard___024root* vlSelf) {
 #ifdef VL_DEBUG
                     Vkeyboard___024root___dump_triggers__act(vlSelf);
 #endif
-                    VL_FATAL_MT("/home/hujun/ysyx-workbench/npc/verilog/vsrc/keyboard.v", 386, "", "Active region did not converge.");
+                    VL_FATAL_MT("/home/hujun/ysyx-workbench/npc/verilog/vsrc/keyboard.v", 179, "", "Active region did not converge.");
                 }
                 vlSelf->__VactIterCount = ((IData)(1U) 
                                            + vlSelf->__VactIterCount);
@@ -1562,7 +1418,7 @@ void Vkeyboard___024root___eval(Vkeyboard___024root* vlSelf) {
 #ifdef VL_DEBUG
                 Vkeyboard___024root___dump_triggers__nba(vlSelf);
 #endif
-                VL_FATAL_MT("/home/hujun/ysyx-workbench/npc/verilog/vsrc/keyboard.v", 386, "", "NBA region did not converge.");
+                VL_FATAL_MT("/home/hujun/ysyx-workbench/npc/verilog/vsrc/keyboard.v", 179, "", "NBA region did not converge.");
             }
             __VnbaIterCount = ((IData)(1U) + __VnbaIterCount);
             Vkeyboard___024root___eval_nba(vlSelf);

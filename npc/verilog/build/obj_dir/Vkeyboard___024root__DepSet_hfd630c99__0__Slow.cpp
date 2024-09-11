@@ -62,7 +62,7 @@ VL_ATTR_COLD void Vkeyboard___024root___eval_settle(Vkeyboard___024root* vlSelf)
 #ifdef VL_DEBUG
                 Vkeyboard___024root___dump_triggers__stl(vlSelf);
 #endif
-                VL_FATAL_MT("/home/hujun/ysyx-workbench/npc/verilog/vsrc/keyboard.v", 386, "", "Settle region did not converge.");
+                VL_FATAL_MT("/home/hujun/ysyx-workbench/npc/verilog/vsrc/keyboard.v", 179, "", "Settle region did not converge.");
             }
             vlSelf->__VstlIterCount = ((IData)(1U) 
                                        + vlSelf->__VstlIterCount);
@@ -101,8 +101,8 @@ VL_ATTR_COLD void Vkeyboard___024root___stl_sequent__TOP__0(Vkeyboard___024root*
     keyboard__DOT___T_13 = 0;
     // Body
     vlSelf->keyboard__DOT___T = (0U == (IData)(vlSelf->keyboard__DOT__state));
-    vlSelf->keyboard__DOT___T_2 = (1U == (IData)(vlSelf->keyboard__DOT__state));
-    vlSelf->keyboard__DOT___T_5 = (2U == (IData)(vlSelf->keyboard__DOT__state));
+    vlSelf->keyboard__DOT___T_1 = (1U == (IData)(vlSelf->keyboard__DOT__state));
+    vlSelf->keyboard__DOT___T_4 = (2U == (IData)(vlSelf->keyboard__DOT__state));
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_3 = 
         (0xaU == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__count));
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_24 
@@ -299,25 +299,14 @@ VL_ATTR_COLD void Vkeyboard___024root___stl_sequent__TOP__0(Vkeyboard___024root*
                                                                                & VL_DIV_III(8, (IData)(vlSelf->keyboard__DOT__keyCount), (IData)(0xaU))), (IData)(0xaU))))
                                                              ? 0x9fU
                                                              : 3U)))))))))))))));
-    vlSelf->keyboard__DOT___T_4 = (0xffU & ((IData)(1U) 
+    vlSelf->keyboard__DOT___T_3 = (0xffU & ((IData)(1U) 
                                             + (IData)(vlSelf->keyboard__DOT__keyCount)));
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_12 
         = (7U & ((IData)(1U) + (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr)));
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_28 
-        = (7U & ((IData)(1U) + (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr)));
-    vlSelf->keyboard__DOT___GEN_9 = ((2U == (IData)(vlSelf->keyboard__DOT__state)) 
+    vlSelf->keyboard__DOT___GEN_6 = ((2U == (IData)(vlSelf->keyboard__DOT__state)) 
                                      | (IData)(vlSelf->keyboard__DOT__newKeyPress));
-    vlSelf->keyboard__DOT___GEN_14 = ((1U == (IData)(vlSelf->keyboard__DOT__state)) 
+    vlSelf->keyboard__DOT___GEN_12 = ((1U == (IData)(vlSelf->keyboard__DOT__state)) 
                                       | (IData)(vlSelf->keyboard__DOT__fifo_clean));
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_26 
-        = ((~ (IData)(vlSelf->keyboard__DOT__nextdata_n)) 
-           & (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready));
-    vlSelf->keyboard__DOT___GEN_17 = ((0U == (IData)(vlSelf->keyboard__DOT__state))
-                                       ? ((~ (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ready)) 
-                                          & (IData)(vlSelf->keyboard__DOT__nextdata_n))
-                                       : ((1U == (IData)(vlSelf->keyboard__DOT__state)) 
-                                          | ((2U == (IData)(vlSelf->keyboard__DOT__state)) 
-                                             | (IData)(vlSelf->keyboard__DOT__nextdata_n))));
     if (vlSelf->keyboard__DOT__newKeyPress) {
         keyboard__DOT___T_7 = (0xfU & (IData)(vlSelf->keyboard__DOT__lastKeyCode));
         keyboard__DOT___T_9 = (0xfU & ((IData)(vlSelf->keyboard__DOT__lastKeyCode) 
@@ -1046,34 +1035,6 @@ VL_ATTR_COLD void Vkeyboard___024root___stl_sequent__TOP__0(Vkeyboard___024root*
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__sampling 
         = ((~ (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ps2_clk_sync_1)) 
            & (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__ps2_clk_sync_2));
-    vlSelf->keyboard__DOT__ps2Keyboard_io_data = ((7U 
-                                                   == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                   ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_7)
-                                                   : 
-                                                  ((6U 
-                                                    == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                    ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_6)
-                                                    : 
-                                                   ((5U 
-                                                     == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                     ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_5)
-                                                     : 
-                                                    ((4U 
-                                                      == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                      ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_4)
-                                                      : 
-                                                     ((3U 
-                                                       == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                       ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_3)
-                                                       : 
-                                                      ((2U 
-                                                        == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                        ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_2)
-                                                        : 
-                                                       ((1U 
-                                                         == (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr))
-                                                         ? (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_1)
-                                                         : (IData)(vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0))))))));
     vlSelf->io_seg_0 = ((0xfU == (IData)(keyboard__DOT___T_7))
                          ? 0x71U : ((0xeU == (IData)(keyboard__DOT___T_7))
                                      ? 0x61U : ((0xdU 
@@ -1380,31 +1341,20 @@ VL_ATTR_COLD void Vkeyboard___024root___ctor_var_reset(Vkeyboard___024root* vlSe
     vlSelf->io_seg_5 = 0;
     vlSelf->io_seg_6 = 0;
     vlSelf->io_seg_7 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard_io_data = 0;
     vlSelf->keyboard__DOT__state = 0;
     vlSelf->keyboard__DOT__lastKeyCode = 0;
     vlSelf->keyboard__DOT__keyCount = 0;
     vlSelf->keyboard__DOT__newKeyPress = 0;
-    vlSelf->keyboard__DOT__nextdata_n = 0;
     vlSelf->keyboard__DOT__fifo_clean = 0;
     vlSelf->keyboard__DOT___T = 0;
-    vlSelf->keyboard__DOT___T_2 = 0;
+    vlSelf->keyboard__DOT___T_1 = 0;
+    vlSelf->keyboard__DOT___T_3 = 0;
     vlSelf->keyboard__DOT___T_4 = 0;
-    vlSelf->keyboard__DOT___T_5 = 0;
-    vlSelf->keyboard__DOT___GEN_9 = 0;
-    vlSelf->keyboard__DOT___GEN_14 = 0;
-    vlSelf->keyboard__DOT___GEN_17 = 0;
+    vlSelf->keyboard__DOT___GEN_6 = 0;
+    vlSelf->keyboard__DOT___GEN_12 = 0;
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__buffer = 0;
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_0 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_1 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_2 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_3 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_4 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_5 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_6 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT__fifo_7 = 0;
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__w_ptr = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT__r_ptr = 0;
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__count = 0;
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__ps2_clk_sync_1 = 0;
     vlSelf->keyboard__DOT__ps2Keyboard__DOT__ps2_clk_sync_2 = 0;
@@ -1416,7 +1366,5 @@ VL_ATTR_COLD void Vkeyboard___024root___ctor_var_reset(Vkeyboard___024root* vlSe
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_29 = 0;
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_24 = 0;
     vlSelf->keyboard__DOT__ps2Keyboard__DOT___GEN_55 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_26 = 0;
-    vlSelf->keyboard__DOT__ps2Keyboard__DOT___T_28 = 0;
     vlSelf->__Vtrigrprev__TOP__clock = 0;
 }

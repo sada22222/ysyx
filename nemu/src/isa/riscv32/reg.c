@@ -31,21 +31,19 @@ void isa_reg_display(void) {
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {
-  // 处理 "pc" 特殊寄存器
+  // 处理pc
   if (strcmp(s, "pc") == 0) {
     *success = true;
     return cpu.pc;
   }
 
-  // 遍历通用寄存器
   for (int idx = 0; idx < 32; idx++) {
-    if(strcmp(s,regs[idx]) == 0){  // 跳过 $ 符号进行比较
+    if(strcmp(s,regs[idx]) == 0){ 
       *success = true;
       return cpu.gpr[idx];
     }
   }
 
-  // 未找到匹配项，返回失败
   *success = false;
-  return 0;  // 返回0表示没有匹配的寄存器
+  return 0;  
 }

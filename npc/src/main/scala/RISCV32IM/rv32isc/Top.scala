@@ -58,11 +58,14 @@ class top extends Module {
     regfile.io.wen:=wb.io.reg_we_o
     regfile.io.waddr:=wb.io.reg_waddr_o
     regfile.io.wdata:=wb.io.reg_wdata_o
+    regfile.io.rdaddr1_i:=id.io.rs1_raddr
+    regfile.io.rdaddr2_i:=id.io.rs2_raddr
+    id.io.reg1_rdata_i:=regfile.io.rdata1_o
+    id.io.reg2_rdata_i:=regfile.io.rdata2_o   
 
     id.io.inst_ex:=id_ex.io.ex_o.inst
     id.io.rd_ex:=id_ex.io.ex_o.rd_waddr
     id.io.access_rd_ex:=id_ex.io.ex_o.rd_we
-
     id.io.inst_mem:=ex_mem.io.mem_o.inst
     id.io.rd_mem:=ex_mem.io.mem_o.rd_waddr
     id.io.access_rd_mem:=ex_mem.io.mem_o.rd_we
@@ -75,11 +78,7 @@ class top extends Module {
     ex.io.mem_pc:=ex_mem.io.mem_o.bjp_res
     ex.io.wb_alu_res:=mem_wb.io.wb_o.alu_res
     ex.io.wb_pc:=mem_wb.io.wb_o.bjp_res
-
-    regfile.io.rdaddr1_i:=id.io.rs1_raddr
-    regfile.io.rdaddr2_i:=id.io.rs2_raddr
-    id.io.reg1_rdata_i:=regfile.io.rdata1_o
-    id.io.reg2_rdata_i:=regfile.io.rdata2_o
+    
 
     fetch.io.flush_i:=Ctrl.io.flush_IF_ID
     if_id.io.flush_i:=Ctrl.io.flush_IF_ID
